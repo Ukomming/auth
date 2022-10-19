@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Regiter {% endblock title %} 
+{% block content %} 
+<form action="" method="post">
+    {% csrf_token %}
+    
+    {% for error in field.errors %}
+      <span class="help-block">{{ error }}</span>
+    {% endfor %}
+        
+    <label for="username">usename</label>
+    <br>
+    {{form.username}} 
+    <br>
+    <label for="email">email</label>
+    <br>
+    {{form.email}} 
+    <br>
+    <label for="password1">password1</label>
+    <br>
+    {{form.password1}}
+    <br>
+    <label for="password2">password2</label>
+    <br>
+    {{form.password2}}
+    <br>
+<p> Have an account? Login   <a href="{% url 'login' %}">Here</a></p>
+<button type="submit">Regiter</button>
+</form>
+{% endblock content %}
